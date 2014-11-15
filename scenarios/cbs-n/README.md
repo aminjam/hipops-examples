@@ -1,13 +1,13 @@
-## Running CbsN
-**(Cbs)couchbase-server + (N)nodejs app (CoreOS)**.
+## Running cbs-n
+**couchbase-server + nodejs app (CoreOS)**.
 This scenario will:
 
 1. create a 3-cluster couchbase server
 2. populate couchbase server with `beer-sample` bucket with it's data
-3. deploy `nodejs` app with `nginx-proxy` to host the demo app at `cbnodejs-demo.com`
+3. deploy nodeJS app with nginx-proxy to host the demo app at `cbnodejs-demo.com`
 
 ### Setup
-- ```cd CbsN```
+- ```cd cbs-n```
 
 - **Vagrant Locally**
 ```

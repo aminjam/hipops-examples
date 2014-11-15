@@ -1,6 +1,6 @@
 {
-  "id": "SAMOMY",
-  "description": "(S)sailsJS-backend + (A)angular-frontend + (MO)mongodb + (MY)mysql",
+  "id": "samomy",
+  "description": "sailsJS-backend + angular-frontend + mongodb + mysql",
   "env": "prod",
   "dest": "/data",
   "oses": [{

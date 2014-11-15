@@ -1,6 +1,6 @@
 {
-  "id": "ELKF",
-  "description": "(E)elasticsearch + (L)logstash + (K)kabana + (F)logstash-forwarder",
+  "id": "elk-f",
+  "description": "elasticsearch + logstash + kabana + logstash-forwarder",
   "env": "prod",
   "dest": "/data",
   "oses": [{

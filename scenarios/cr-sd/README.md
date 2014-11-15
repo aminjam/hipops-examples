@@ -1,5 +1,5 @@
-## Running SD-CR
-**(S)service (D)discovery with (C)consul + (R)registrator**.
+## Running cr-sd
+**consul + registrator + service discovery**.
 This scenario will:
 
 1. create a 3-cluster consul servers
@@ -7,7 +7,7 @@ This scenario will:
 
 ### Setup
 
-- ```cd scenarios/SD-CR```
+- ```cd scenarios/cr-sd```
 
 - **Vagrant Locally**
  ```

@@ -1,10 +1,10 @@
-## Running SAMOMY-dev
-**(S)sailsJS-backend + (A)angular-frontend + (MO)mongodb + (MY)mysql on a single host (CoreOS)**.
+## Running samomy-dev
+**sailsJS-backend + angular-frontend + mongodb + mysql on a single host (CoreOS)**.
 This scenario will create a single server hosting mysql, mongodb, nodejs api, static html, and nginx-proxy
 
 ### Setup
 
-- ```cd scenarios/SAMOMY-dev```
+- ```cd scenarios/samomy-dev```
 
 - **Vagrant Locally**
 ```

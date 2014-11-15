@@ -1,6 +1,6 @@
 {
-  "id": "CbsN",
-  "description": "(Cbs)couchbase-server + (N)nodejs app",
+  "id": "cbs-n",
+  "description": "couchbase-server + nodejs app",
   "env": "dev",
   "dest": "/data",
   "oses": [{

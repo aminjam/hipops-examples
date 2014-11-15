@@ -1,6 +1,6 @@
 {
-  "id": "CbsCbsg",
-  "description": "(Cbs)couchbase-server + (Cbsg)couchbase-sync-gateway",
+  "id": "cbs-cbsg",
+  "description": "couchbase-server + couchbase-sync-gateway",
   "env": "dev",
   "dest": "/data",
   "oses": [{

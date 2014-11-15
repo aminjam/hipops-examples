@@ -1,5 +1,5 @@
-## Running SAMOMY-prod
-**(S)sailsJS-backend + (A)angular-frontend + (MO)mongodb + (MY)mysql linked together on three different hosts (2 ubuntu & 1 CoreOS)**.
+## Running samomy-prod
+**sailsJS-backend + angular-frontend + mongodb + mysql linked together on three different hosts (2 ubuntu & 1 CoreOS)**.
 This scenario will:
 
 1. create 3-cluster servers
@@ -9,7 +9,7 @@ This scenario will:
 
 ### Setup
 
-- - ```cd scenarios/SAMOMY-prod```
+- - ```cd scenarios/samomy-prod```
 
 
 - **Vagrant Locally**

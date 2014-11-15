@@ -1,6 +1,6 @@
 {
-  "id": "SD-CR",
-  "description": "(S)service (D)discovery with (C)consul + (R)registrator",
+  "id": "cr-sd",
+  "description": "consul + registrator + service discovery ",
   "env": "dev",
   "dest": "/data",
   "oses": [{

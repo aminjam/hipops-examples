@@ -1,13 +1,13 @@
-## Running CbsCbsg
-**(Cbs)couchbase-server + (Cbsg)couchbase-sync-gateway**.
+## Running cbs-cbgs
+**couchbase-server + couchbase-sync-gateway**.
 This scenario is built for [todo-lite demo](https://github.com/couchbaselabs/TodoLite-PhoneGap) and will:
 
-1. create a `couchbase-server`
-2. deploy `sync_gateway` with `nginx-proxy` to host the sync endpoint at `cbsync-gateway-demo.com`
+1. create a couchbase-server
+2. deploy sync_gateway with nginx-proxy to host the sync endpoint at `cbsync-gateway-demo.com`
 
 ### Setup
 
-- ```cd CbsCbsg```
+- ```cd cbs-cbsg```
 
 - **Vagrant Locally**
 ```
