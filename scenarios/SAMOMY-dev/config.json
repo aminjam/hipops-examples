@@ -1,5 +1,5 @@
 {
-  "id": "hipops-SAMOMY",
+  "id": "SAMOMY",
   "description": "(S)sailsJS-backend + (A)angular-frontend + (MO)mongodb + (MY)mysql",
   "env": "dev",
   "user": "ubuntu",
@@ -38,8 +38,7 @@
     "host": "hipops-SAMOMY-backend.com",
     "repository": {
       "branch": "master",
-      "sshUrl": "github.com/aminjam/hipops-SAMOMY-backend.git",
-      "sshKey": "/Users/ajamali/.ssh/id_rsa"
+      "sshUrl": "github.com/aminjam/hipops-SAMOMY-backend.git"
     },
     "image": "aminjam/nodejs:latest",
     "ports": [3001]
@@ -50,7 +49,6 @@
     "repository": {
       "branch": "master",
       "sshUrl": "github.com/aminjam/hipops-SAMOMY-frontend.git",
-      "sshKey": "/Users/ajamali/.ssh/id_rsa",
       "folder": "dist/"
     },
     "image": "aminjam/nginx-static:tiny",

@@ -1,11 +1,11 @@
 {
-  "id": "hipops-CBServerSyncGateway-dev",
-  "description": "(CBServer)couchbase-server + Sync-Gateway",
+  "id": "CbsCbsg",
+  "description": "(Cbs)couchbase-server + (Cbsg)couchbase-sync-gateway",
   "env": "dev",
   "dest": "/data",
   "oses": [{
     "user": "core",
-    "python_interpreter": "PATH=/home/core/bin:$PATH python"
+    "pythonInterpreter": "PATH=/home/core/bin:$PATH python"
   }],
   "apps": [{
     "name": "couchbase-server",
@@ -29,7 +29,7 @@
   "playbooks": [{
     "inventory": "tag_App-Role_CB-SERVER-00",
     "apps": ["{{index .Apps 0}}"],
-    "actions": [{
+    "containers": [{
       "params": "--net=host -v {{.App.Dest}}:/home/app -e COUCHBASE_USER={{.App.Cred.Username}} -e COUCHBASE_PASS={{.App.Cred.Password}} -e COUCHBASE_DATA=/home/app -d {{.App.Image}} cluster-init"
     }, {
       "params": "--name todos_bucket --rm {{.App.Image}} couchbase-cli bucket-create -c $COUCHBASE_SERVER:8091 -u {{.App.Cred.Username}} -p {{.App.Cred.Password}} --bucket=todos --bucket-ramsize=100"
@@ -38,13 +38,12 @@
     "inventory": "tag_App-Role_CB-SYNC-GATEWAY",
     "apps": ["{{index .Apps 1}}"],
     "state": "deploying",
-    "actions": [{
+    "containers": [{
       "params": "-v {{.App.Dest}}/config.json:/config.json -e VIRTUAL_HOST={{.App.Host}} -e VIRTUAL_PORT={{index .App.Ports 0}} -d {{.App.Image}} /config.json"
     }]
   }, {
     "inventory": "tag_App-Role_CB-SYNC-GATEWAY",
-    "actions": [{
-      "image": "aminjam/nginx-proxy:tiny",
+    "containers": [{
       "params": "--name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -p 80:80 -d aminjam/nginx-proxy:tiny"
     }]
   }]

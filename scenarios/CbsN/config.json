@@ -1,12 +1,11 @@
 {
-  "id": "hipops-CBnodejs-demo",
-  "description": "(CB)couchbase-server + nodejs demo app",
+  "id": "CbsN",
+  "description": "(Cbs)couchbase-server + (N)nodejs app",
   "env": "dev",
   "dest": "/data",
   "oses": [{
     "user": "core",
-    "python_interpreter": "PATH=/home/core/bin:$PATH python"
-
+    "pythonInterpreter": "PATH=/home/core/bin:$PATH python"
   }],
   "apps": [{
     "name": "couchbase-server",
@@ -34,7 +33,7 @@
   "playbooks": [{
     "inventory": "tag_App-Role_CB-SERVER-00",
     "apps": ["{{index .Apps 0}}"],
-    "actions": [{
+    "containers": [{
       "params": "--net=host -v {{.App.Dest}}:/home/app -e COUCHBASE_USER={{.App.Cred.Username}} -e COUCHBASE_PASS={{.App.Cred.Password}} -e COUCHBASE_DATA=/home/app -d {{.App.Image}} cluster-init"
     }, {
       "params": "--name beer-sample --rm {{.App.Image}} cbdocloader -n $COUCHBASE_SERVER:8091 -u {{.App.Cred.Username}} -p {{.App.Cred.Password}} -b beer-sample /opt/couchbase/samples/beer-sample.zip"
@@ -42,20 +41,19 @@
   }, {
     "inventory": "tag_App-Role_CB-SERVER",
     "apps": ["{{index .Apps 0}}"],
-    "actions": [{
+    "containers": [{
       "params": "--net=host -e COUCHBASE_USER={{.App.Cred.Username}} -e COUCHBASE_PASS={{.App.Cred.Password}} -e COUCHBASE_SERVER=$COUCHBASE_SERVER -d {{.App.Image}} rebalance"
     }]
   }, {
     "inventory": "tag_App-Role_CBnodejs-app",
     "apps": ["{{index .Apps 1}}"],
     "state": "deploying",
-    "actions": [{
+    "containers": [{
       "params": "-v {{.App.Dest}}:/home/app -v {{.App.Dest}}/custom-start-app.sh:/start-app.sh -e VIRTUAL_HOST={{.App.Host}} -e NODE_ENV=development -e COUCHBASE_SERVER=http://$COUCHBASE_SERVER:8091 -d {{.App.Image}}"
     }]
   }, {
     "inventory": "tag_App-Role_CBnodejs-app",
-    "actions": [{
-      "image": "aminjam/nginx-proxy:tiny",
+    "containers": [{
       "params": "--name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -p 80:80 -d aminjam/nginx-proxy:tiny"
     }]
   }]

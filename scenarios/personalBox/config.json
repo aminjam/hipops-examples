@@ -62,21 +62,20 @@
       "{{index .Apps 3}}"
     ],
     "state": "deploying",
-    "actions": [{
+    "containers": [{
       "params": "-v {{.App.Dest}}:/home/app -e VIRTUAL_HOST={{.App.Host}} -d {{.App.Image}} /run.sh"
     }]
   }, {
     "inventory": "tag_Name_personal",
     "apps": ["{{index .Apps 4}}"],
     "state": "deploying",
-    "actions": [{
+    "containers": [{
       "params": "-v {{.App.Dest}}:/home/app -e VIRTUAL_HOST={{.App.Host}} -d {{.App.Image}}"
     }]
   }, {
     "inventory": "tag_Name_personal",
-    "actions": [{
-      "image": "aminjam/nginx-proxy",
-      "params": "--name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -p 80:80 -d aminjam/nginx-proxy"
+    "containers": [{
+      "params": "--name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -p 80:80 -d aminjam/nginx-proxy:tiny"
     }]
   }]
 }
