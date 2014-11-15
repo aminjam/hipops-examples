@@ -20,21 +20,19 @@ Thanks [defunctzombie](https://github.com/defunctzombie/ansible-coreos-bootstrap
 - You can then test it by running: `ansible -i ansible/hosts all -m setup`
 
 #### Vagrant ubuntu
-   - `cd devops/vagrant/ubuntu`
+   - `cd vagrant/ubuntu`
    - `vagrant up` this will create 4 ubuntu 14.04
    - `ansible-playbook ansible/bootstrap-vagrant.yml -i ansible/hosts` to install docker and give `ubuntu` user ssh permission
 
+#### AWS Remotely
+- make sure `ec2.py` is properly [configured and working](http://docs.ansible.com/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script)
+- make sure `docker` is installed on the hosts and has [non-root-access](http://docs.docker.com/installation/binaries/#giving-non-root-access)
+
+
 ##Examples
-  - [CbsCbsg](https://github.com/aminjam/hipops-examples/tree/master/scenarios/CbsCbsg) `Cbs`couchbase-server + `Cbsg`couchbase-sync-gateway
-  - [CbsN](https://github.com/aminjam/hipops-examples/tree/master/scenarios/CbsN) `Cbs`couchbase-server + `N`nodejs demo app.
-  - [ELKF](https://github.com/aminjam/hipops-examples/tree/master/scenarios/ELKF) `E`elasticsearch + `L`logstash + `K`kabana + `F`logstash-forwarder for aggregating the logs across all containers.
-  - [SAMOMY-dev](https://github.com/aminjam/hipops-examples/tree/master/scenarios/SAMOMY-dev) `S`sailsJS-backend + `A`angular-frontend + `MO`mongodb + `MY`mysql on a single box.
-  - [SAMOMY-prod](https://github.com/aminjam/hipops-examples/tree/master/scenarios/SAMOMY-prod) `S`sailsJS-backend + `A`angular-frontend + `MO`mongodb + `MY`mysql linked together on three different boxes.
-  - [SD-CR](https://github.com/aminjam/hipops/tree/master/devops/scenarios/hipops-SD-CR) (S)service (D)discovery with (C)consul + (R)registrator on all of your servers (ubuntu)
-
-
-
-
-- **AWS Remotely**
-  - make sure `ec2.py` is properly [configured and working](http://docs.ansible.com/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script)
-  - make sure `docker` is installed on the hosts and has [non-root-access](http://docs.docker.com/installation/binaries/#giving-non-root-access)
+  - [cbs-cbsg](https://github.com/aminjam/hipops-examples/tree/master/scenarios/cbs-cbsg) couchbase-server + couchbase-sync-gateway for connecting mobile apps.
+  - [cbs-n](https://github.com/aminjam/hipops-examples/tree/master/scenarios/cbs-n) couchbase-server + nodejs demo app.
+  - [cd-sd](https://github.com/aminjam/hipops/tree/master/devops/scenarios/cr-sd)  consul + registrator service discovery on all of your servers.
+  - [elk-f](https://github.com/aminjam/hipops-examples/tree/master/scenarios/elk-f) elasticsearch + logstash + kabana + logstash-forwarder for aggregating the logs across all containers.
+  - [samomy-dev](https://github.com/aminjam/hipops-examples/tree/master/scenarios/SAMOMY-dev) sailsJS-backend + angular-frontend + mongodb + mysql on a single box.
+  - [samomy-prod](https://github.com/aminjam/hipops-examples/tree/master/scenarios/samomy-prod) sailsJS-backend + angular-frontend + mongodb + mysql linked together on three different boxes.
