@@ -9,7 +9,7 @@ Collection of scenario examples for [hipops](https://github.com/aminjam/hipops)
 `go version 1.3 or newer`
 
 ####Plugins
-`ansible`: `ansible version 1.7 or newer`
+`ansible`: `ansible v1.7` and default playbooks are https://github.com/aminjam/hipops-playbooks/tree/master/ansible
 
 
 #### Vagrant CoreOS
