@@ -23,9 +23,9 @@ http://172.17.8.101:8091
 ```
 (Extra Credit) Connect [couchbase-lite](http://developer.couchbase.com/mobile/develop/guides/couchbase-lite/index.html) to http://cbsync-gateway-demo.com for your sync gateway demo. We will use [TodoLite-PhoneGap](https://github.com/couchbaselabs/TodoLite-PhoneGap), and change `js/index.js`
 
-    - `REMOTE_SYNC_URL` to be `cbsync-gateway-demo.com`
+  - REMOTE_SYNC_URL to be cbsync-gateway-demo.com
 
-    - `FacebookInAppBrowser.settings.appId` with your [FacebookAppId](https://developers.facebook.com)
+  - FacebookInAppBrowser.settings.appId with your appId. https://developers.facebook.com
 
 
 - **AWS Remotely** Checkout `hosts/local` file for the proper `App-Role` metadata instance tag.
