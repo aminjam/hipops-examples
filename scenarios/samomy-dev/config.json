@@ -2,7 +2,6 @@
   "id": "samomy",
   "description": "sailsJS-backend + angular-frontend + mongodb + mysql",
   "env": "dev",
-  "user": "ubuntu",
   "dest": "/data",
   "oses": [{
     "user": "core",
