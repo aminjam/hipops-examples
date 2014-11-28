@@ -1,0 +1,2 @@
+[tag_App-Role_ASPNET-TODO]
+172.17.8.101 ansible_connection=ssh

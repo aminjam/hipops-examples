@@ -1,0 +1,69 @@
+{
+  "id": "aspnet-todo",
+  "description": "aspnet vnext todo demo",
+  "env": "dev",
+  "dest": "/data",
+  "oses": [{
+    "user": "core",
+    "pythonInterpreter": "PATH=/home/core/bin:$PATH python"
+  }],
+  "apps": [{
+    "name": "mongo",
+    "type": "db",
+    "image": "aminjam/mongodb:latest",
+    "ports": [27017]
+  }, {
+    "name": "consumerAPI",
+    "type": "kestrel",
+    "image": "microsoft/aspnet:latest",
+    "host": "aspnet-todo-demo-api.com",
+    "ports": [5004],
+    "repository": {
+      "branch": "master",
+      "sshUrl": "github.com/aminjam/aspnet-vnext-docker-demo.git",
+      "folder": "src/API.Consumer/"
+    },
+    "customizations": [{
+      "src": "aspnet-run.sh",
+      "dest": "aspnet-run.sh",
+      "mode": 744
+    }]
+  }, {
+    "name": "consumerWeb",
+    "type": "static",
+    "image": "aminjam/nginx-static:tiny",
+    "host": "aspnet-todo-demo-web.com",
+    "ports": [80, 443],
+    "repository": {
+      "branch": "master",
+      "sshUrl": "github.com/aminjam/aspnet-vnext-docker-demo.git",
+      "folder": "src/Web/dist/"
+    }
+  }],
+  "playbooks": [{
+    "inventory": "tag_App-Role_ASPNET-TODO",
+    "apps": ["{{index .Apps 0}}"],
+    "containers": [{
+      "params": "-v {{.App.Dest}}:/home/app -p 9990:{{index .App.Ports 0}} -e MONGO_OPTIONS='--smallfiles' -d {{.App.Image}}"
+    }]
+  }, {
+    "inventory": "tag_App-Role_ASPNET-TODO",
+    "apps": ["{{index .Apps 1}}"],
+    "state": "deploying",
+    "containers": [{
+      "params": "-v {{.App.Dest}}:/home --expose {{index .App.Ports 0}} -e VIRTUAL_HOST={{.App.Host}} -e VIRTUAL_PORT={{index .App.Ports 0}} --link {{(index .Apps 0).Name}}:mongo -dt {{.App.Image}} /home/aspnet-run.sh"
+    }]
+  }, {
+    "inventory": "tag_App-Role_ASPNET-TODO",
+    "apps": ["{{index .Apps 2}}"],
+    "state": "deploying",
+    "containers": [{
+      "params": "-v {{.App.Dest}}:/home/app -e VIRTUAL_HOST={{.App.Host}} -e VIRTUAL_PORT={{index .App.Ports 0}} -d {{.App.Image}}"
+    }]
+  }, {
+    "inventory": "tag_App-Role_ASPNET-TODO",
+    "containers": [{
+      "params": "--name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -p 80:80 -d aminjam/nginx-proxy:tiny"
+    }]
+  }]
+}
