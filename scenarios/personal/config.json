@@ -63,7 +63,7 @@
     ],
     "state": "deploying",
     "containers": [{
-      "params": "-v {{.App.Dest}}:/home/app -e VIRTUAL_HOST={{.App.Host}} -d {{.App.Image}} /run.sh"
+      "params": "-v {{.App.Dest}}:/home/app -e NODE_ENV=production -e VIRTUAL_HOST={{.App.Host}} -d {{.App.Image}}"
     }]
   }, {
     "inventory": "tag_Name_personal",
