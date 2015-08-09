@@ -1,2 +1,2 @@
-[tag_Name_personal]
+[tag_Name_main]
 172.20.21.10 ansible_connection=ssh
