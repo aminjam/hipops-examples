@@ -64,7 +64,7 @@
   }, {
     "inventory": "tag_Name_main",
     "containers": [{
-      "params": "--name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -p 80:80 -d aminjam/nginx-proxy:tiny"
+      "params": "--name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -p 80:80 -d aminjam/nginx-proxy"
     }]
   }]
 }
